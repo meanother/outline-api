@@ -22,7 +22,7 @@ def get_dt() -> str:
 
 def read_outline_config():
     with open("/opt/outline/access.txt", "r") as conf_file:
-        conf = conf_file.read()
+        conf = conf_file.read().strip()
     cert, url = conf.split("\n")
     data = {
         "apiUrl": url.strip()[7:],
