@@ -18,3 +18,14 @@ logger.add(
 def get_dt() -> str:
     """return now dt"""
     return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+
+def read_outline_config():
+    with open("/opt/outline/access.txt", "r") as conf_file:
+        conf = conf_file.read()
+    cert, url = conf.split("\n")
+    data = {
+        "apiUrl": url.strip(),
+        "certSha256": cert.strip(),
+    }
+    return data

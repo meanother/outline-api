@@ -7,7 +7,7 @@ import time
 from requests.adapters import HTTPAdapter, Retry
 from typing import Union, Optional
 
-from core.utils import logger, get_dt
+from core.utils import logger, get_dt, read_outline_config
 from core.db import insert, select_user, update_user_limit
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -41,7 +41,7 @@ class OutlineBackend:
         self.session = requests.Session()
         self.session.mount('http://', adapter)
         self.session.mount('https://', adapter)
-        self.server = load_config()
+        self.server = read_outline_config()
         self.base_url = self.server["apiUrl"]
 
     def _get(self, path: str):
