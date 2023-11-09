@@ -62,4 +62,8 @@ def update_user_limit(username: str, limit: str) -> Optional[dict]:
     return select_user(username)
 
 
+def delete_user(username: str) -> None:
+    cursor.execute("delete from outline_users where name = ?", (username, ))
+
+
 check_db_exists()

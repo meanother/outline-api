@@ -25,7 +25,7 @@ def read_outline_config():
         conf = conf_file.read()
     cert, url = conf.split("\n")
     data = {
-        "apiUrl": url.strip(),
-        "certSha256": cert.strip(),
+        "apiUrl": url.strip()[7:],
+        "certSha256": cert.strip()[11:],
     }
     return data

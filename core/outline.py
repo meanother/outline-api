@@ -8,7 +8,7 @@ from requests.adapters import HTTPAdapter, Retry
 from typing import Union, Optional
 
 from core.utils import logger, get_dt, read_outline_config
-from core.db import insert, select_user, update_user_limit
+from core.db import insert, select_user, update_user_limit, delete_user
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -150,4 +150,5 @@ class OutlineBackend:
         user_key = self.get_user(username)
         logger.info(f"Delete username: {username}")
         self._delete(f"access-keys/{user_key['key_id']}")
+        delete_user(username)
         return {"username": username, "status": "deleted"}
