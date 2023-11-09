@@ -22,7 +22,7 @@ retries = Retry(
 adapter = HTTPAdapter(max_retries=retries)
 headers = {'Content-Type': 'application/json'}
 
-MASK = "#📡 Outline"
+MASK = "#"
 
 
 def load_config() -> dict:

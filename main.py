@@ -82,7 +82,7 @@ async def get_user(name: str):
     print(name)
     user_data = outline.get_user(name)
     _response = {
+        "access_url": user_data["access_url"],
         "status": "success",
-        "data": user_data,
     }
     return JSONResponse(content=_response)
