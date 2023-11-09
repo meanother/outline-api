@@ -59,11 +59,13 @@ def select_user(username: str) -> Optional[dict]:
 
 def update_user_limit(username: str, limit: str) -> Optional[dict]:
     cursor.execute("update outline_users set data_limit = ? where name = ?", (username, limit))
+    conn.commit()
     return select_user(username)
 
 
 def delete_user(username: str) -> None:
     cursor.execute("delete from outline_users where name = ?", (username, ))
+    conn.commit()
 
 
 check_db_exists()
