@@ -23,6 +23,7 @@ app.add_middleware(
 def verify_token(req: Request):
     token = req.headers["x-api-key"]
     if token != TOKEN:
+        logger.error(f"Token {token} is not valid!")
         raise HTTPException(
             status_code=401,
             detail="Unauthorized"
