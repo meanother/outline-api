@@ -7,5 +7,5 @@ sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-
 
 ## Run API service
 ```shell
-sudo bash -c "$(curl -sL https://github.com/meanother/outline-api/init.sh)"
+sudo bash -c "$(curl -sL https://raw.githubusercontent.com/meanother/outline-api/main/init.sh)"
 ```
