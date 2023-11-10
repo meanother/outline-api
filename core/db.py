@@ -58,7 +58,7 @@ def select_user(username: str) -> Optional[dict]:
 
 
 def update_user_limit(username: str, limit: str) -> Optional[dict]:
-    cursor.execute("update outline_users set data_limit = ? where name = ?", (username, limit))
+    cursor.execute("update outline_users set data_limit = ? where name = ?", (limit, username))
     conn.commit()
     return select_user(username)
 
