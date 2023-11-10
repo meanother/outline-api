@@ -5,6 +5,7 @@ from fastapi.responses import JSONResponse
 
 from core.schema import NewUserResponseModel, UserModel
 from core.outline import OutlineBackend
+from core.utils import logger
 
 TOKEN = "d59cf216daaf407d81ddda6a98fc0e77"
 
@@ -41,7 +42,7 @@ async def create_new_user(request: Request, authorized: bool = Depends(verify_to
             "status": "success",
             "data": user_data,
         }
-
+        logger.info(f"Response: {_response}")
         return JSONResponse(content=_response)
 
 
@@ -56,6 +57,7 @@ async def disable_user(request: Request, authorized: bool = Depends(verify_token
             "status": "success",
             "data": user_data,
         }
+        logger.info(f"Response: {_response}")
         return JSONResponse(content=_response)
 
 
@@ -70,6 +72,7 @@ async def delete_user(request: Request, authorized: bool = Depends(verify_token)
             "status": "success",
             "data": user_data,
         }
+        logger.info(f"Response: {_response}")
         return JSONResponse(content=_response)
 
 
@@ -86,7 +89,7 @@ async def set_user_limit(request: Request, authorized: bool = Depends(verify_tok
             "status": "success",
             "data": user_data,
         }
-
+        logger.info(f"Response: {_response}")
         return JSONResponse(content=_response)
 
 
@@ -101,4 +104,5 @@ async def get_user(name: str, authorized: bool = Depends(verify_token)):
             "name": user_data["name"],
             "status": "success",
         }
+        logger.info(f"Response: {_response}")
         return JSONResponse(content=_response)
