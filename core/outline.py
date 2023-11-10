@@ -86,6 +86,7 @@ class OutlineBackend:
 
     @staticmethod
     def get_user(username: str) -> Optional[dict]:
+        logger.info(f"get info from sqlite3 for user: {username}")
         data = select_user(username)
         return data
 
