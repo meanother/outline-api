@@ -131,6 +131,7 @@ class OutlineBackend:
             f"access-keys/{user_key['key_id']}/data-limit",
             data={"limit": {"bytes": int(size) * 1000 * 1000 * 1000}}
         )
+        logger.info(f"set data limit to {size} for user {username}")
         return {"username": username, "limit": size}
 
     def set_infinity_limit(self, key_id: Union[str, int]):
