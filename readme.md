@@ -9,3 +9,8 @@ sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-
 ```shell
 sudo bash -c "$(curl -sL https://raw.githubusercontent.com/meanother/outline-api/main/init.sh)"
 ```
+
+## Export Oultine users to csv file
+```shell
+$HOME/code/outline-api/export.py
+```
